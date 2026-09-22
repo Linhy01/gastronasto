@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Návrh; ve WordPressu ho vygeneruje Yoast / Rank Math / vestavěná wp-sitemap.xml -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://gastronasto.eu/</loc>
+    <lastmod>2026-09-22</lastmod>
+    <image:image><image:loc>https://gastronasto.eu/img/og-image.jpg</image:loc></image:image>
+    <image:image><image:loc>https://gastronasto.eu/img/kuchar-1280.webp</image:loc></image:image>
+    <image:image><image:loc>https://gastronasto.eu/img/bar-pult-1280.webp</image:loc></image:image>
+  </url>
+  <!-- Fáze 2: samostatné podstránky -->
+  <url><loc>https://gastronasto.eu/koktejlovy-bar-na-akci/</loc></url>
+  <url><loc>https://gastronasto.eu/catering-svatba-marianske-lazne/</loc></url>
+  <url><loc>https://gastronasto.eu/firemni-catering/</loc></url>
+</urlset>
