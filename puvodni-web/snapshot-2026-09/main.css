@@ -1,0 +1,48 @@
+
+/* ====== Tokens ====== */
+:root{
+  --c-text:#111;
+  --c-accent:#e53935;
+  --c-bg:#fff;
+  --c-muted:#6b7280;
+  --c-card:#f7f7f8;
+  --max:1100px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font:16px/1.6 Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--c-text);background:var(--c-bg)}
+
+/* ====== Header ====== */
+.gns-header{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid #eee}
+.gns-wrap{max-width:var(--max);margin:0 auto;padding:10px 16px}
+.gns-header .gns-wrap{display:flex;align-items:center;justify-content:space-between}
+.brand .custom-logo{max-height:44px;height:auto;width:auto}
+.site-title{font-weight:800;text-decoration:none;color:var(--c-text)}
+.nav-list{list-style:none;margin:0;padding:0;display:flex;gap:16px}
+.nav-list a{display:block;padding:8px 10px;text-decoration:none;color:var(--c-text)}
+.nav-list a:hover,.nav-list .current-menu-item>a{color:var(--c-accent)}
+
+/* ====== Hero ====== */
+.gns-hero{position:relative;min-height:72vh;display:grid;place-items:center;background:#000 center/cover no-repeat}
+.gns-hero__overlay{position:absolute;inset:0;background:rgba(0,0,0,.45)}
+.gns-hero__inner{position:relative;text-align:center;color:#fff;padding:48px 16px}
+.gns-hero__logo img{max-width:520px;width:80%;height:auto;filter:drop-shadow(0 6px 20px rgba(0,0,0,.35));margin-bottom:10px}
+.gns-hero__title{font-weight:800;font-size:clamp(28px,6vw,56px);margin:6px 0 8px}
+.gns-hero__lead{font-size:clamp(16px,2.6vw,22px);opacity:.95;margin:0 0 18px}
+.gns-btn{display:inline-block;padding:12px 22px;border-radius:9999px;background:var(--c-accent);color:#fff;font-weight:700;text-decoration:none}
+.gns-btn:hover{filter:brightness(.95)}
+
+/* ====== Sections ====== */
+.gns-section{padding:56px 0}
+.gns-section--alt{background:var(--c-card)}
+.gns-section h2{font-size:clamp(26px,4vw,38px);margin:0 0 12px}
+.gns-section .lead{color:var(--c-muted);margin-bottom:24px}
+
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.card{background:#fff;border:1px solid #eee;border-radius:14px;padding:18px;box-shadow:0 6px 18px rgba(0,0,0,.06)}
+.card h3{margin:0 0 6px}
+
+/* ====== Contact ====== */
+.contact{margin:0;padding:0;list-style:none;display:grid;gap:8px}
+.contact a{color:var(--c-text);text-decoration:underline}
+.gns-footer{border-top:1px solid #eee;padding:22px 0;text-align:center;color:var(--c-muted)}
