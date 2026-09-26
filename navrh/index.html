@@ -93,12 +93,7 @@
 }
 </script>
 </head>
-<body class="show-todo">
-
-<div class="proto-bar" role="note">
-  Prototyp návrhu. <mark class="todo-mark">Žlutě</mark> jsou údaje, které je nutné ověřit nebo doplnit.
-  <button type="button" id="toggle-todo">Skrýt zvýraznění</button>
-</div>
+<body>
 
 <a class="skip" href="#obsah">Přeskočit na obsah</a>
 
@@ -204,7 +199,7 @@
 <section id="nabidka" class="gns-section gns-section--alt">
   <div class="gns-wrap">
     <h2>Ukázka nabídky</h2>
-    <p class="lead">Takhle vypadá naše nabídka na veřejných akcích. Pro soukromé akce ji sestavíme na míru. <span data-todo>(Ceny a položky ověřit.)</span></p>
+    <p class="lead">Takhle vypadá naše nabídka na veřejných akcích. Pro soukromé akce ji sestavíme na míru.</p>
     <div class="menu-grid">
       <div class="menu-col">
         <h3>Koktejly a nápoje</h3>
@@ -326,9 +321,7 @@
     </div>
     <address>
       <strong>Gastro Na Sto</strong><br>
-      <span data-todo>Jméno provozovatele / firma</span><br>
-      <span data-todo>IČO: 00000000</span><br>
-      <span data-todo>Ulice č. p.</span>, 353 01 Mariánské Lázně<br>
+      353 01 Mariánské Lázně<br>
       <a href="tel:+420737616276">+420 737 616 276</a>
     </address>
     <nav aria-label="Patička">
@@ -344,8 +337,6 @@
   const t=document.querySelector('.nav-toggle'),m=document.getElementById('menu');
   t.addEventListener('click',()=>{const o=t.getAttribute('aria-expanded')==='true';t.setAttribute('aria-expanded',!o);m.classList.toggle('open',!o);});
   m.addEventListener('click',e=>{if(e.target.closest('a')){t.setAttribute('aria-expanded','false');m.classList.remove('open');}});
-  const b=document.getElementById('toggle-todo');
-  b.addEventListener('click',()=>{const on=document.body.classList.toggle('show-todo');b.textContent=on?'Skrýt zvýraznění':'Zobrazit zvýraznění';});
 </script>
 </body>
 </html>
