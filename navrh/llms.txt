@@ -4,8 +4,10 @@
 
 ## Základní údaje
 - Název: Gastro Na Sto
-- Sídlo: Mariánské Lázně, 353 01, Česká republika
-- Oblast působnosti: Mariánské Lázně, Cheb, Františkovy Lázně, Karlovy Vary, Tachov a okolí [OVĚŘIT]
+- Provozovatel: Veronika Prokešová, IČO 22115641
+- Sídlo: Mladějovského 151/7, 353 01 Mariánské Lázně, Česká republika
+- Kontaktní osoba: Filip Prokeš
+- Oblast působnosti: Mariánské Lázně, Velká Hleďsebe, Cheb, Karlovy Vary, Chodová Planá, Planá, Tachov a okolí
 - Telefon: +420 737 616 276
 - E-mail: filip.prokesov@gmail.com
 - Web: https://gastronasto.eu/
