@@ -81,6 +81,7 @@ a{color:var(--c-accent)}
 .gingham-top::before{content:"";position:absolute;left:0;right:0;top:0;height:12px;background:var(--gingham);opacity:.9}
 .intro{padding:48px 0 8px}
 .lead-xl{font-size:clamp(19px,2.2vw,23px);line-height:1.55;margin:0}
+.lead-xl + .lead{margin:16px 0 0}
 .sub-h{margin:44px 0 14px;font-size:20px}
 
 .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
