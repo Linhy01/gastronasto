@@ -269,32 +269,38 @@
         <li><strong>Působíme</strong><span>Mariánské Lázně, Cheb, Františkovy Lázně, Karlovy Vary, Tachov <span data-todo>a okolí</span></span></li>
       </ul>
     </div>
-    <form class="form" action="#" method="post" onsubmit="event.preventDefault();alert('Prototyp – formulář zatím nikam neodesílá.');">
+    <form class="form" id="poptavka-form" action="https://formsubmit.co/filip.prokesov@gmail.com" method="post">
+      <input type="hidden" name="_subject" value="Nová poptávka z webu gastronasto.eu">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_next" value="https://gastronasto.eu/#poptavka-odeslano">
+      <input type="text" name="_honey" class="sr" tabindex="-1" autocomplete="off" aria-hidden="true">
       <div class="row">
         <label>Typ akce
-          <select name="typ" required>
+          <select name="Typ akce" required>
             <option value="">Vyberte…</option><option>Svatba</option><option>Firemní akce</option><option>Oslava / narozeniny</option><option>Festival / trh / slavnost</option><option>Jiné</option>
           </select>
         </label>
-        <label>Datum<input type="date" name="datum" required></label>
+        <label>Datum<input type="date" name="Datum" required></label>
       </div>
       <div class="row">
-        <label>Místo konání<input name="misto" placeholder="např. Mariánské Lázně" required></label>
-        <label>Počet hostů<input type="number" name="hoste" min="1" inputmode="numeric" placeholder="např. 80"></label>
+        <label>Místo konání<input name="Místo konání" placeholder="např. Mariánské Lázně" required></label>
+        <label>Počet hostů<input type="number" name="Počet hostů" min="1" inputmode="numeric" placeholder="např. 80"></label>
       </div>
       <fieldset>
         <legend>O co máte zájem</legend>
-        <label class="check"><input type="checkbox" name="sluzba" value="bar" checked> Koktejlový bar</label>
-        <label class="check"><input type="checkbox" name="sluzba" value="grill"> Grill</label>
-        <label class="check"><input type="checkbox" name="sluzba" value="catering"> Catering na míru</label>
+        <label class="check"><input type="checkbox" name="Koktejlový bar" value="ano" checked> Koktejlový bar</label>
+        <label class="check"><input type="checkbox" name="Grill" value="ano"> Grill</label>
+        <label class="check"><input type="checkbox" name="Catering na míru" value="ano"> Catering na míru</label>
       </fieldset>
       <div class="row">
-        <label>Jméno<input name="jmeno" autocomplete="name" required></label>
-        <label>Telefon<input type="tel" name="tel" autocomplete="tel" required></label>
+        <label>Jméno<input name="Jméno" autocomplete="name" required></label>
+        <label>Telefon<input type="tel" name="Telefon" autocomplete="tel" required></label>
       </div>
       <label>E-mail<input type="email" name="email" autocomplete="email"></label>
-      <label>Poznámka<textarea name="zprava" rows="3" placeholder="Cokoli, co bychom měli vědět"></textarea></label>
+      <label>Poznámka<textarea name="Poznámka" rows="3" placeholder="Cokoli, co bychom měli vědět"></textarea></label>
       <button class="gns-btn" type="submit">Odeslat poptávku</button>
+      <p class="form-msg" id="form-msg" role="status" aria-live="polite" hidden></p>
       <p class="muted small">Odesláním formuláře souhlasíte, že vaše údaje použijeme k vyřízení poptávky.</p>
     </form>
   </div>
@@ -337,6 +343,20 @@
   const t=document.querySelector('.nav-toggle'),m=document.getElementById('menu');
   t.addEventListener('click',()=>{const o=t.getAttribute('aria-expanded')==='true';t.setAttribute('aria-expanded',!o);m.classList.toggle('open',!o);});
   m.addEventListener('click',e=>{if(e.target.closest('a')){t.setAttribute('aria-expanded','false');m.classList.remove('open');}});
+  const f=document.getElementById('poptavka-form'),msg=document.getElementById('form-msg');
+  const ukaz=(text,ok)=>{msg.textContent=text;msg.className='form-msg '+(ok?'ok':'err');msg.hidden=false;};
+  if(location.hash==='#poptavka-odeslano'){ukaz('Děkujeme, poptávka dorazila. Ozveme se vám co nejdřív.',true);document.getElementById('poptavka').scrollIntoView();}
+  f.addEventListener('submit',async e=>{
+    e.preventDefault();
+    const btn=f.querySelector('button[type=submit]');btn.disabled=true;
+    try{
+      const r=await fetch(f.action.replace('formsubmit.co/','formsubmit.co/ajax/'),{method:'POST',headers:{'Accept':'application/json'},body:new FormData(f)});
+      const d=await r.json();
+      if(!r.ok||String(d.success)!=='true')throw new Error(d.message||'chyba');
+      f.reset();ukaz('Děkujeme, poptávka dorazila. Ozveme se vám co nejdřív.',true);
+    }catch(err){ukaz('Poptávku se nepodařilo odeslat. Zavolejte nám prosím na 737 616 276 nebo napište na filip.prokesov@gmail.com.',false);}
+    btn.disabled=false;
+  });
 </script>
 </body>
 </html>
