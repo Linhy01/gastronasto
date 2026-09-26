@@ -136,6 +136,9 @@ a{color:var(--c-accent)}
 .form legend{font-weight:600;font-size:15px;margin-bottom:6px;width:100%}
 .form .check{display:flex;align-items:center;gap:8px;font-weight:400}
 .form .check input{width:auto}
+.form-msg{margin:0;padding:12px 14px;border-radius:10px;font-weight:600}
+.form-msg.ok{background:#e8f5e9;color:#1b5e20}
+.form-msg.err{background:#fdecea;color:#8e1c1c}
 .form .gns-btn{justify-self:start}
 
 /* ====== FAQ ====== */
